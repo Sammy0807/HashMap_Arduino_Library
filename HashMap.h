@@ -51,15 +51,15 @@ class HashType {
 
 		void reset();
 		
-		hash getHash() const;
+		hash getHash();
 
 		void setHash(hash code);
 
-		map getValue() const;
+		map getValue();
 
 		void setValue(map value);
 
-		//HashType& operator()(hash code, map value);
+		//void operator()(hash code, map value);
 
 
 	private:
@@ -84,11 +84,11 @@ class HashNode {
 
 		~HashNode();
 
-		HashType<hash, map> *getHashType() const;
+		HashType<hash, map> *getHashType();
 
-		HashNode<hash, map> *getPrevius() const;
+		HashNode<hash, map> *getPrevius();
 
-		HashNode<hash, map> *getNext() const;
+		HashNode<hash, map> *getNext();
 
 		void setPrevius(HashNode<hash, map> *previus);
 
@@ -120,7 +120,7 @@ class HashMap {
 
 		void put(hash key, map value);
 
-		bool containsKey(hash key) const;
+		bool containsKey(hash key);
 
 		map valueFor(hash key);
 
@@ -138,7 +138,7 @@ class HashMap {
 
 		void remove();
 
-		unsigned int count() const;
+		unsigned int count();
 
 		bool moveToFirst();
 
@@ -146,7 +146,7 @@ class HashMap {
 
 		bool moveToNext();
 
-		bool moveToPrev();
+		bool moveToPrev();	
 
 
 	private:

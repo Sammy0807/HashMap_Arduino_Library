@@ -41,7 +41,7 @@ void HashType<hash, map>::reset() {
 }
 
 template<typename hash, typename map>
-hash HashType<hash, map>::getHash() const {
+hash HashType<hash, map>::getHash() {
 	return hashCode;
 }
 
@@ -51,7 +51,7 @@ void HashType<hash, map>::setHash(hash code) {
 }
 
 template<typename hash, typename map>
-map HashType<hash, map>::getValue() const {
+map HashType<hash, map>::getValue() {
 	return mappedValue;
 }
 
@@ -84,19 +84,19 @@ HashNode<hash, map>::~HashNode() {
 
 
 template<typename hash, typename map>
-HashType<hash, map> *HashNode<hash, map>::getHashType() const {
+HashType<hash, map> *HashNode<hash, map>::getHashType() {
 	return hashType;
 }
 
 
 template<typename hash, typename map>
-HashNode<hash, map> *HashNode<hash, map>::getPrevius() const {
+HashNode<hash, map> *HashNode<hash, map>::getPrevius() {
 	return previus;
 }
 
 
 template<typename hash, typename map>
-HashNode<hash, map> *HashNode<hash, map>::getNext() const {
+HashNode<hash, map> *HashNode<hash, map>::getNext() {
 	return next;
 }
 
@@ -163,17 +163,18 @@ void HashMap<hash, map>::put(hash key, map value) {
 
 
 template<typename hash, typename map>
-bool HashMap<hash, map>::containsKey(hash key) const {
+bool HashMap<hash, map>::containsKey(hash key) {
 	return hashPairForKey(key) != 0;
 }
 
 
 template<typename hash, typename map>
 map HashMap<hash, map>::valueFor(hash key) {
-	HashNode<hash, map> * pointer = hashPairForKey(key);
+	HashNode<hash, map> *pointer = hashPairForKey(key);
 
 	if (pointer != 0) {
   		return pointer->getHashType()->getValue();
+	
 	}
 }
 
@@ -268,7 +269,7 @@ void HashMap<hash, map>::remove() {
 
 
 template<typename hash, typename map>
-unsigned int HashMap<hash, map>::count() const {
+unsigned int HashMap<hash, map>::count() {
 	return size;
 }
 
@@ -319,6 +320,7 @@ bool HashMap<hash, map>::moveToPrev() {
   		return false;
 	}
 }
+
 
 //---private members---
 
